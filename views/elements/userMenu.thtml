@@ -1,0 +1,11 @@
+<div id="login">
+		<form action="<?php echo $html->url('/users/login'); ?>" method="post">
+			<table>
+				<tr>
+					<td><?php echo $html->link('Change Password', '/users/change_password'); ?></td>
+					<?php if($user == 'admin') echo  '<td>' . $html->link('Control Panel', '/admin/control_panels/index') . '</td>'; ?>
+					<td><?php echo $html->link('Logout', '/users/logout'); ?></td>
+				</tr>
+			</table>
+		</form>
+</div>

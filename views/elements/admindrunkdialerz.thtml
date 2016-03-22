@@ -1,0 +1,68 @@
+<?php foreach($drunkdialerz as $ddz) { ?>
+	<div class="dd_listing">
+		<img src="/img/no_avatar.jpg" width="100px" alt="" />
+		<div class="dd_listing_content">
+			<table>
+				<tr>
+					<td><strong>Dialer:</strong></td>
+					<td><a href='/admin/drunk_dialerz/edit/<?php echo $ddz['DrunkDial']['id']; ?>'><?php echo $ddz['DrunkDial']['id']; ?></a></td>
+				</tr>
+				<tr>
+					<td><strong>From:</strong></td>
+					<td><?php echo $ddz['User']['name']; ?></td>
+				</tr>
+				<tr>
+					<td><strong>Date:</strong></td>
+					<td><?php echo $time->niceShort($ddz['DrunkDial']['date_time']); //note that you must change the output formating in the niceShort source to g:i A ?></td>
+				</tr>	
+				<tr>
+					<td><strong>State:</strong></td>
+					<td><?php echo $ddz['DrunkDial']['state']; ?></td>
+				</tr>
+				<tr>
+					<td><strong>Played</strong></td>
+					<td><?php echo $ddz['DrunkDial']['listened_to']; ?> Times</td>
+				</tr>
+				<tr>
+					<td><strong>Last Played:</strong></td>
+					<td><?php echo $ddz['DrunkDial']['last_listened_to']; ?></td>
+				</tr> 
+				<tr>
+					<td><strong>Tags:</strong></td>
+					<td>
+						<?php if(isset($ddz['DrunkDial']['tags'])) foreach($ddz['DrunkDial']['tags'] as $key=>$tag) { ?>
+							<?php echo $html->link($tag, '/'); ?>
+							<?php if(isset($ddz['DrunkDial']['tags'][$key+1])) echo ', '; ?>
+						<?php } ?>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>In this call:</strong></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><strong>Status:</strong></td>
+					<td><?php echo $ddz['DrunkDial']['status']; ?></td>
+				</tr>
+				<tr>
+					<td colspan="2"><a href=''>0<?php //echo $ddz['DrunkDial']['id']; ?> Comments</a></strong></td>
+				</tr>
+			</table>
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/
+				pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
+				width="250" height="25" id="mini_player_mp3" align="left">
+				<param name="allowScriptAccess" value="sameDomain" />
+				<param name="movie" value="/flash/mini_player_mp3.swf?my_mp3=http://www.thedrunkdialerz.com/audio/drunk_dialerz/<?php echo $ddz['DrunkDial']['file_name']; ?>.mp3&amp;my_text=<?php echo $time->niceShort($ddz['DrunkDial']['date_time']); ?>" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="wmode" value="transparent" />
+				<embed src="/flash/mini_player_mp3.swf?my_mp3=http://www.thedrunkdialerz.com/audio/drunk_dialerz/<?php echo $ddz['DrunkDial']['file_name']; ?>.mp3&amp;my_text=<?php echo $time->niceShort($ddz['DrunkDial']['date_time']); ?>" quality="high" bgcolor="#ffffff" width="250" height="25" wmode="transparent" name="mini_player_mp3" align="left" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			</object>	
+		</div>
+		<?php //if($ddz['DrunkDial']['user_id'] === $user_id) { ?>
+			<div class="dd_listing_edit">
+				<?php echo $html->link('Edit', '/admin/drunk_dialerz/edit/' . $ddz['DrunkDial']['id']); ?>
+			</div>
+		<?php //} ?>
+	</div>
+<?php } ?>

@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="header_infobox">
+		<div class="header">
+			STATS
+	</div>
+	<div class="info">
+			<?php $ddz_count = $this->requestAction('/drunk_dialerz/ddz_count'); ?>
+			<table>
+				<tr>
+					<td>Last Night:</td>
+					<td><?php echo $ddz_count['day']; ?></td>
+				</tr>
+				<tr>
+					<td>This Week:</td>
+					<td><?php echo $ddz_count['week']; ?></td>
+				</tr>
+				<tr>
+					<td>This Month:</td>
+					<td><?php echo $ddz_count['month']; ?></td>
+				</tr>
+				<tr>
+					<td>This Year:</td>
+					<td><?php echo $ddz_count['year']; ?></td>
+				</tr>
+				<tr>
+					<td>Total:</td>
+					<td><?php echo $ddz_count['all']; ?></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>			
+<div class="container">
+	<div class="header_infobox">
+		<div class="header">
+			BLOG
+		</div>
+		<div class="info">
+			<?php 
+			$post = $this->requestAction('blogs/excerpt');
+			echo '<strong>' . $time->niceShort($post['Post']['created']) . '</strong><br /><br />';
+			echo $post['Post']['body'] . $html->link('...more', '/blogs');
+		?>
+		</div>
+	</div>
+</div>	

@@ -1,0 +1,58 @@
+#content .middle{
+	margin: 0px;
+	border: 0px;
+	border: 0px;
+	padding: 0px;
+	display: inline;
+	width: 646px;
+	text-align: left;
+	/*******IE6 MIN-HEIGHT HACK******/
+	height:auto !important;
+	height: 100%;
+	/*********************************/
+	min-height: 100%;
+	float: left;
+	background: #ffffff;
+	color: #000;
+	}
+
+#content .middle .container
+	{
+	margin: 0px;
+	padding: 10px 15px 15px;
+	width: 616px;
+	height: 100%;
+	margin-bottom: -32757px;
+	padding-bottom: 32767px;
+	background: #ffffff;
+	}
+	
+#content .cpanel{
+	margin: 10px;
+	border: 1px solid #000;
+	padding: 10px;
+	display: inline;
+	width: 100px;
+	text-align: center;
+	height: 100px;
+	float: left;
+	background: #eeeeee;
+	color: #000;
+	font-size: 12px;
+	}
+	
+#content .workarea{
+	border: 1px solid #000;
+	display: block;
+	float: left;
+	width: 616px;
+	}
+	
+#content .cpanel a{
+	color: #000;
+	}
+	
+#content .cpanel img{
+	width: 75px;
+	height: 75px;
+	}
